@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/HashMap_C.dir/main.c.o CMakeFiles/HashMap_C.dir/myHashMap.c.o -o HashMap_C 

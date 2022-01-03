@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/liangchen/CLionProjects/HashMap_C/main.c
+stdio.h
+-
+malloc.h
+-
+limits.h
+-
+stdlib.h
+-
+
+/home/liangchen/CLionProjects/HashMap_C/myHashMap.c
+myHashMap.h
+/home/liangchen/CLionProjects/HashMap_C/myHashMap.h
+stdlib.h
+-
+stdint.h
+-
+
+/home/liangchen/CLionProjects/HashMap_C/myHashMap.h
+
