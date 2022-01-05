@@ -9,7 +9,7 @@
 
 
 
-int array[DEFAULT_INITIAL_CAPACITY];
+
 typedef struct{
     char * key;  //键
     void * val_list_head;//值
@@ -45,12 +45,18 @@ HashMap*  create_MyHashMap(int (*hash)(char *key),int (*equal)(char *k1,char *k2
 //int  (*equal)(char *k1,char *k2));
 
 //增
-void put(HashMap hashMap,char * key,char * val);
+void put(HashMap hashMap,char* const key,char* const val);
 
+//创建value链表
 val_list * create_list(int d);
 
 //删
 int  remove_Node(HashMap hashMap,char *k,char* v);
 
+//查
+void * search(HashMap hashMap,char* const k);
+
+//调节hashmap大小size
+void rebuildMyHashMap(HashMap hashMap);
 
 #endif // HASHMAP_C_MYHASHMAP_H

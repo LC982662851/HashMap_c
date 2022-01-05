@@ -3,4 +3,4 @@ project(HashMap_C C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(HashMap_C main.c myHashMap.h myHashMap.c myHashMap.cpp)
+add_executable(HashMap_C main.c myHashMap.h myHashMap.c)

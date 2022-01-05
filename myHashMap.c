@@ -2,6 +2,7 @@
 // Created by liangchen on 2022/1/2.
 //
 
+int estimate_num=0;
 #include "myHashMap.h"
 #include <stdlib.h>
 #include <stdint.h>
@@ -51,13 +52,22 @@ val_list * create_list(int d){
 
 
 //增
-void put(HashMap hashMap,char * k
-         ,char * v) {
+void put(HashMap hashMap,char * const k
+         ,char * const v) {
     int remark=0;
+
+    //对factor和capacity进行评估
+    if(estimate_num==hashMap.threshold){
+
+    }
+
+
     int index = hashcode(k, hashMap);
     if (hashMap.table[index].data.key == NULL) {
         hashMap.table[index].data.key = k;
         hashMap.table[index].data.val_list_head = v;
+        //对索引使用率的记录
+        estimate_num++;
     } else {
         int result1 = Equal(hashMap.table[index].data.key, k);
         //是同一个值，没必要继续
@@ -93,7 +103,7 @@ void put(HashMap hashMap,char * k
 }
 
 //删
-int  remove_Node(HashMap hashMap,char *k,char* v){
+int  remove_Node(HashMap hashMap,char * const k,char* const v){
     int index=hashcode(k,hashMap);
     if(index>hashMap.size||index<0)
     {
@@ -127,4 +137,49 @@ int  remove_Node(HashMap hashMap,char *k,char* v){
     return 1;
 }
 
+//查
+void* search(HashMap hashMap,char* const k){
+    int index= hashcode(k,hashMap);
+    if(hashMap.table[index].data.key==k)
+        return hashMap.table[index].data.val_list_head;
 
+    HashNode *hashNode =&hashMap.table[index].next;
+    while(hashNode!=NULL){
+        if(hashNode->data.key==k){
+            return hashNode->data.val_list_head;
+        }
+        else
+        {
+         hashNode=hashNode->next;
+        }
+    }
+    printf("未查到相应的key\n");
+    return 0;
+}
+
+//改
+int modify(HashMap hashMap,char * const k){
+    void * result=search(hashMap,k);
+    if(result==0){
+        printf("未查到改索引，无法修改\n");
+    }
+
+    val_list * list = (val_list *)result;
+}
+
+
+//调节hashmap大小size
+void rebuildMyHashMap(HashMap hashMap){
+    HashMap* hm =(HashMap*) malloc(sizeof(HashMap));
+    hm->size=hashMap.size*2;
+    hm->loadFactor=DEFAULT_LOAD_FACTOR;
+    hm->threshold=(int)(hm->size*hm->loadFactor);
+    hm->table=(HashNode*) malloc(sizeof(HashNode)*hm->size);
+    hm->hash= (int (*)(char *, void *)) hashcode;
+    hm->equal=Equal;
+    for(int i=0;i<hashMap.size;i++){
+       hm->table[i]=hashMap.table[i];
+    }
+
+
+}
