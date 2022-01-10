@@ -37,7 +37,7 @@ typedef struct HashMap
 //int  (*hash)(char * key,HashMap hashMap);
 //int  (*equal)(char *k1,char *k2);
 
-int hashcode(char * key,HashMap hashMap);
+int hashcode(char * key,HashMap* hashMap);
 int Equal(char *k1,char *k2);
 
 //创建hashmap
@@ -45,18 +45,18 @@ HashMap*  create_MyHashMap(int (*hash)(char *key),int (*equal)(char *k1,char *k2
 //int  (*equal)(char *k1,char *k2));
 
 //增
-void put(HashMap hashMap,char* const key,char* const val);
+void put(HashMap* hashMap,char* const key,void * const val);
 
 //创建value链表
 val_list * create_list(int d);
 
 //删
-int  remove_Node(HashMap hashMap,char *k,char* v);
+int  remove_Node(HashMap* hashMap,char *k,void * v);
 
 //查
-void * search(HashMap hashMap,char* const k);
+void * search(HashMap* hashMap,char* const k);
 
 //调节hashmap大小size
-void rebuildMyHashMap(HashMap hashMap);
+HashMap *rebuildMyHashMap(HashMap *hashMap);
 
 #endif // HASHMAP_C_MYHASHMAP_H

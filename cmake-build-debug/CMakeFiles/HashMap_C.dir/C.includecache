@@ -15,6 +15,8 @@ limits.h
 -
 stdlib.h
 -
+myHashMap.h
+/home/liangchen/CLionProjects/HashMap_C/myHashMap.h
 
 /home/liangchen/CLionProjects/HashMap_C/myHashMap.c
 myHashMap.h
@@ -22,6 +24,8 @@ myHashMap.h
 stdlib.h
 -
 stdint.h
+-
+stdio.h
 -
 
 /home/liangchen/CLionProjects/HashMap_C/myHashMap.h

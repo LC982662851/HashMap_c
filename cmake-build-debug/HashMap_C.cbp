@@ -82,9 +82,6 @@
 		<Unit filename="/home/liangchen/CLionProjects/HashMap_C/myHashMap.c">
 			<Option target="HashMap_C"/>
 		</Unit>
-		<Unit filename="/home/liangchen/CLionProjects/HashMap_C/myHashMap.cpp">
-			<Option target="HashMap_C"/>
-		</Unit>
 		<Unit filename="/home/liangchen/CLionProjects/HashMap_C/myHashMap.h">
 			<Option target="HashMap_C"/>
 		</Unit>
